@@ -1,0 +1,41 @@
+.list_current {
+	background-color: #fff;
+	padding: 0 32px;
+	.list_info {
+		padding: 26px 0 24px;
+		border-bottom: 2px solid #EDEDED;
+		&:last-child {
+			border-bottom: none;
+		}
+		.list_info_head {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			.list_info_head_left {
+				display: flex;
+				flex-direction: column;
+				.name {
+					font-size: 30px;
+					color: #393939;
+					margin: 0 0 16px;
+				}
+				.buy_time {
+					font-size: 24px;
+					color: #999999;
+				}
+			}
+			.list_info_head_right {
+				.money {
+					font-size: 38px;
+				}
+				.block {
+					color: #393939;
+				}
+				.green {
+					color: #37BA34;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,133 @@
+/* 全局配置 */
+* {
+  -webkit-overflow-scrolling: touch; /* 允许独立滚动区域，解决IOS上的非body元素滚动条滚动时卡顿 */
+  -webkit-tap-highlight-color: transparent; /* 覆盖IOS上用户点击连接时的默认高亮颜色 */
+  outline: none;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+  color: #979CB2; 
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+  color: #979CB2; 
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+  color: #979CB2; 
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+  color: #979CB2; 
+}
+html,body {
+  font-family: "Microsoft Yahei", "PingFang SC";
+  position: relative;
+  background-color: #F3F3F3;
+  height: 100%;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased; /* 平滑字体 */
+  -moz-osx-font-smoothing: grayscale; /* 平滑字体 */
+  -ms-touch-action: manipulation; /* 允许触摸驱动的平移和拖拽缩放 */
+  touch-action: manipulation; /* 允许触摸驱动的平移和拖拽缩放 */
+  -webkit-text-size-adjust: 100%; /* 关闭IOS横屏时，自动调整字体大小的功能 */
+}
+#root {
+  height: 100%;
+}
+ul , ol {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+li {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+} 
+img {
+  width: 100%;
+  border: 0;
+}
+input {
+  line-height: normal;
+}
+img,
+a:focus,
+a:hover,
+a:active {
+  outline: none;
+}
+label {
+  cursor: pointer;
+}
+h1,h2,h3,h4,h5,p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+.floatL {
+  float: left;
+}
+.floatR {
+  float: right;
+} 
+.floatN {
+  float: none;
+}
+.clear {
+  width: 100%;
+  display: inline-block;
+}
+.textL {
+  text-align: left;
+}
+.textC {
+  text-align: center;
+}
+.textR {
+  text-align: right;
+}
+.layout {
+  width: 1200px;
+  margin: 0 auto;
+}
+.tabContant {
+  width: 1000px;
+  margin: 0 auto;
+}
+@keyframes rotate {
+  0%      {transform: rotate(0deg);left:0px;}
+  100%    {transform: rotate(360deg);left:0px;}
+}
+.am-modal-alert-content {
+  font-size: 28px;
+  color: #393939;
+  text-align: center;
+}
+.am-modal-button-group-h .am-modal-button:first-child {
+  color: #666666;
+}
+/*.am-modal-transparent .am-modal-content .am-modal-body {
+  padding: 0;
+}
+*/
+.am-modal-input {
+  height: 60px;
+  line-height: 60px;
+  padding: 0 0 0 30px;
+}
+.am-tabs-default-bar-tab {
+  font-size: 30px;
+  color: #393939;
+  height: 84px;
+  line-height: 84px;
+}
+.am-tabs-default-bar-tab-active {
+  color: #1A3F6F;
+}
+.am-tabs-default-bar-underline {
+  border-bottom: 2px solid #1A3F6F;
+}
+.am-tabs-default-bar-top .am-tabs-default-bar-tab, .am-tabs-default-bar-bottom .am-tabs-default-bar-tab {
+  padding: 0;
+}

@@ -1,0 +1,43 @@
+.personNews {
+	background-color: #F3F3F3;
+	height: 100%;
+	.person_news_top {
+		margin: 0 0 20px;
+		.person_news_list {
+			background-color: #fff;
+			padding: 0 32px;
+			ul li {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				padding: 40px 0;
+				border-bottom: 2px solid #F1F1F1;
+				&:last-child {
+					border-bottom: none;
+				}
+				.mine_list_left {
+					display: flex;
+					flex-direction: row;
+					span {
+						font-size: 32px;
+						color: #888888;
+						margin: 0 0 0 22px;
+					}
+				}
+				.mine_list_right {
+					span {
+						font-size: 32px;
+						color: #393939;
+					}
+				}
+			}
+		}
+	}
+	.person_news_bottom {
+		font-size: 26px;
+		color: #666666;
+		padding: 10px 32px 0;
+		text-align: right;
+	}
+}

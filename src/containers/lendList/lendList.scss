@@ -1,0 +1,19 @@
+.lend_list {
+	background-color: #F3F3F3;
+	height: 100%;
+	.lend_list_head {
+		display: flex;
+		flex-direction: column;
+		padding: 60px 0;
+		text-align: center;
+		.money {
+			font-size: 58px;
+			color: #393939;
+			margin: 0 0 22px;
+		}
+		.size {
+			font-size: 28px;
+			color: #888888;
+		}
+	}
+}

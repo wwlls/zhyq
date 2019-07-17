@@ -1,0 +1,40 @@
+.lend_detail {
+	background-color: #F3F3F3;
+	.lend_detail_top {
+		margin: 0 0 20px;
+		.lend_detail_list {
+			background-color: #fff;
+			padding: 0 32px;
+			ul li {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				padding: 40px 0;
+				border-bottom: 2px solid #F1F1F1;
+				&:last-child {
+					border-bottom: none;
+				}
+				.mine_list_left {
+					display: flex;
+					flex-direction: row;
+					span {
+						font-size: 32px;
+						color: #888888;
+						margin: 0 0 0 22px;
+					}
+				}
+				.mine_list_right {
+					span {
+						font-size: 32px;
+						color: #393939;
+					}
+					img {
+						width: 26px;
+						height: 26px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,85 @@
+.home {
+	background-color: #F3F3F3;
+	height: 100%;
+	.product {
+		margin: 0 0 140px;
+		.product_list {
+			background-color: #fff;
+			margin: 0 0 20px;
+			.product_list_head {
+				background-color: #F9F9F9;
+				padding: 22px 32px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				.name {
+					font-size: 26px;
+					color: #333333;
+				}
+				.size {
+					width: 150px;
+					text-align: center;
+					height: 36px;
+					line-height: 36px;
+					border: 2px solid #FF5D0C;		
+					transform:skew(-10deg); /*设置倾斜度为-30*/
+					border-radius: 8px;
+					em {
+						font-size: 20px;
+						color: #FF5D0C;
+						transform:skew(10deg); /*设置倾斜度为-30*/   
+						display: inline-block;
+						font-style: normal;
+					} 
+				}
+			}
+			.product_list_bottom {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+				padding: 46px 0;
+				.product_list_bottom_info {
+					display: flex;
+					flex-direction: column;
+					text-align: center;
+					width: 35%;
+					&:first-child {
+						width: 30%;
+					}
+					.interest {
+						font-size: 42px;
+						color: #FF5D0C;
+						em {
+							font-size: 22px;
+							font-style: normal;
+						}
+					}
+					.period {
+						font-size: 32px;
+						color: #393939;
+						i {
+							font-style: normal;
+						}
+					}
+					.remain_money {
+						font-size: 34px;
+						color: #393939;
+					}
+					.info_size {
+						font-size: 22px;
+						color: #888888;
+						margin: 16px 0 0;
+					}
+				}
+			}
+		}		
+	}
+	.noData {
+		font-size: 20px;
+		color: #888888;
+		padding: 24px 0 0;
+		text-align: center;
+	}
+}

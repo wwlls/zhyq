@@ -1,0 +1,29 @@
+.am-modal-transparent {
+	width: 540px;
+	.am-modal-content {
+		padding: 40px 0 0;
+		.am-modal-header {
+			padding: 0 30px 18px;
+			.am-modal-title {
+				font-size: 28px;
+				color: #393939;
+			}
+		}
+		.am-modal-body {
+			font-size: 28px;
+			color: #393939;
+			line-height: 42px;
+			text-align: left;
+			padding: 0 30px 28px;
+			.center {
+				text-align: center;
+			}
+		}
+		.am-modal-button {
+			font-size: 32px;
+			color: #FF5D0C;
+			height: 86px;
+			line-height: 86px;
+		}
+	}
+}

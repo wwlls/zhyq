@@ -1,0 +1,17 @@
+@import "static/css/common.scss";
+.getCode {
+	& button {
+		position: absolute;
+		right: 0;
+		bottom: 34px;
+		&.ant-btn {
+			font-size: 28px;
+			color: #1A3F6F;
+			border: none;
+			background: none;
+		}
+		&.ant-btn[disabled] {
+			color: #999;
+		}
+	}
+}

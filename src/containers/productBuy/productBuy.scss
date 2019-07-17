@@ -1,0 +1,118 @@
+.productBuy {
+	background-color: #F3F3F3;
+	height: 100%;
+	.product_buy_head {
+		background-color: #fff;
+		padding: 26px 32px 0;
+		.head_size {
+			font-size: 28px;
+			color: #393939;
+		}
+		.head_input {
+			position: relative;
+			span {
+				font-size: 28px;
+				position: absolute;
+				top: 36px;
+				left: 0;
+				z-index: 99;
+			}
+			.am-list-item {
+				padding: 30px 0 30px 40px;
+				.fake-input-container {
+					height: 40px;
+					line-height: 40px;
+				}
+				input {
+					font-size: 40px;
+				}
+			}
+		}
+	}
+	.product_buy_main {
+		font-size: 28px;
+		color: #393939;
+		padding: 20px 32px;
+		span {
+			color: #FF5D0C;
+		}
+	}
+	.product_buy_pic {
+		background-color: #fff;
+		ul li {
+			padding: 16px 32px;
+			border-bottom: 2px solid #F1F1F1;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			.product_buy_pic_left {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				img {
+					width: 56px;
+					height: 56px;
+					vertical-align: middle;
+					margin: -6px 0 0
+				}
+				span {
+					font-size: 30px;
+					color: #393939;
+					margin: 0 0 0 32px;
+				}
+			}
+			.product_buy_pic_right {
+				.am-button {
+					width: 110px;
+					text-align: center;
+					height: 56px;
+					line-height: 56px;
+					border: 2px solid #FF5D0C;
+					&::before {
+						border: none;
+					}
+					span {
+						font-size: 32px;
+						color: #FF5D0C;
+					}
+				}
+			}
+		}
+	}
+	.product_buy_btn {
+		.am-button  {
+			font-size: 28px;
+			color: #fff;
+			border-radius: 8px;
+			height: 80px;
+			line-height: 80px;
+			margin: 60px 32px 0;
+		}
+		.disabled {
+			background-color: #d5d5d5;
+		}
+		.enabled {
+			background: -webkit-linear-gradient(to right, #FF4746, #FF8133); /* Safari 5.1 - 6.0 */
+		  background: -o-linear-gradient(to right, #FF4746, #FF8133); /* Opera 11.1 - 12.0 */
+		  background: -moz-linear-gradient(to right, #FF4746, #FF8133); /* Firefox 3.6 - 15 */
+		  background: linear-gradient(to right, #FF4746, #FF8133);
+		}
+	}
+	.product_buy_foot {
+		margin: 24px 32px 0;
+		p {
+			font-size: 22px;
+			color: #888888;
+		}
+		.bank_rule {
+			font-size: 28px;
+			color: #4A90E2;
+			margin: 28px 0 0;
+			display: inline-block;
+			width: 100%;
+			text-align: right;
+		}
+	}
+}

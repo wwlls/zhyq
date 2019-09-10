@@ -26,16 +26,11 @@ class CapitalList extends React.Component {
   }
   
   componentDidMount = () => {
-    document.title = '资金流水';
+    document.title = '列表'
   }
 
   onTabClick = (tab, index) => {
     console.log(tab, index)
-  }
-
-  // 无数据回列表页
-  handleHome = () => {
-    this.props.history.push('/home')
   }
 
 

@@ -1,3 +1,10 @@
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV === "development") {
+  console.log("开发环境");
+} else {
+  console.log("生产环境");
+}
+
 const config = {
 	title: '外货通',
 	port: 9000, // 部署环境的默认接口

@@ -3,14 +3,12 @@ import { Button } from 'antd-mobile';
 import Utils from 'utils';
 import Tools from 'utils/tools';
 import NoData from 'component/noData/noData';
-import TabBar from 'component/tabBar/tabBar';
 import './home.scss';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pathname: '/home',
       productList: [
         {name: '90天标的产品第2期', status:'到期还本付息', interest: '7.0', period: 90, remainMoney: 11000.00, id: 1},
         {name: '90天标的产品第10期', status:'到期还本付息', interest: '11.0', period: 180, remainMoney: 1100000.00, id: 2},
@@ -19,7 +17,7 @@ class Home extends React.Component {
   }
 
   componentDidMount = () => {
-    document.title = '定期列表';
+    document.title = '首页'
   };
 
   handleProductDetail = (e, id) => {
@@ -71,7 +69,6 @@ class Home extends React.Component {
           :
           <NoData text="暂无已可出借标的" />
         }
-        <TabBar pathname={pathname} />
       </div>
     )
   }

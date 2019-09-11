@@ -1,64 +1,38 @@
 import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
+import Api from 'api/api'
 import md5 from 'md5';
 const Config = require('../../config');
 
 const Utils = {
-  postRequest(action, data = {}) {
-    data['action'] = action;
+  postRequest(action, data = {}, hideLoading) {
     data = this.setPublic(data);
     data['sign'] = Utils.createSign(data);
-    let loading = document.getElementById('ajaxLoading');
-    loading.style.display = 'block';
-    let accessToken = Utils.getStorage("ZZBSESSIONID");
-    if(action != 'token/get' && (accessToken == '' || accessToken == null || accessToken == undefined)) {
-      Utils.removeSession(); //清除本地数据
-      let tokenData = {};
-      tokenData['app_key'] = Config.app_key;
-      tokenData['device_id'] = Config.device_id;
-      Utils.postRequest(Api.token_get, tokenData).then((accessRes) => {
-        let accessToken = JSON.parse(accessRes.body).access_token;
-        Utils.setStorage("ZZBSESSIONID" , accessToken);
+    hideLoading = hideLoading || false;
+    if (!hideLoading) {
         let loading = document.getElementById('ajaxLoading');
-        loading.style.display = 'none';
-      });
+        loading.style.display = 'block';
     }
-    
-    return new Promise((resolve,reject) => {
-      axios.post(Config.api + action, data).then((res)=>{
-        let loading = document.getElementById('ajaxLoading');
-        loading.style.display = 'none';
-        if (res.rtn_code == 1009) {// 未登录
-          Utils.removeSession(); //清除本地数据
-          //window.location.href = Config.login_page;
-          return;
-        };
-        if(res.rtn_code == 1002) {// token未获取到
-          Utils.removeSession(); //清除本地数据
-          let tokenData = {};
-          tokenData['app_key'] = Config.app_key;
-          tokenData['device_id'] = Config.device_id;
-          Utils.postRequest(Api.token_get, tokenData).then((accessRes) => {
-            let accessToken = JSON.parse(accessRes.body).access_token;
-            Utils.setStorage("ZZBSESSIONID" , accessToken);
-            Utils.postRequest(action, data = {}).then(() => {//获取到token后再次请求接口
-              axios.post(Config.api + action, data).then((res)=>{
-                resolve(res);
-              })
-            })
-          });
-          return;
-        }
-        resolve(res);
-        //Promise报错
-        // if(res.rtn_code == 0) {
-        //     resolve(res);
-        // } else{
-        //     reject(res);
-        // }
-      })
+    return new Promise((resolve, reject) => {
+        axios.post(Config.server_uri + action, data).then((res) => {
+            if (!hideLoading) {
+                let loading = document.getElementById('ajaxLoading');
+                loading.style.display = 'none';
+            }
+            let data = res.data;
+            if (data.code === 9110 || data.code === 9021) {// 未登录
+                Utils.removeStorage("isLogin");
+                window.location.href = Config.login_page;
+                return;
+            }
+            if (data.code !== 0) {
+                Toast.info(res.data.message, 1);
+                return;
+            }
+            Utils.setStorage("paymentChannel", data.paymentChannel);
+            resolve(data.data);
+        })
     })
-  },
+},
 
   //公用参数
   setPublic(data) {

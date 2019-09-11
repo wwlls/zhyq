@@ -1,74 +1,74 @@
-import React from 'react';
-import { Button } from 'antd-mobile';
-import Utils from 'utils';
-import Tools from 'utils/tools';
-import NoData from 'component/noData/noData';
-import './home.scss';
+import React from 'react'
+import { Tabs, Badge, Button } from 'antd-mobile'
+import Utils from 'utils'
+import Tools from 'utils/tools'
+import Company from './src/company'
+import People from './src/people'
+import Car from './src/car'
+import Device from './src/device'
+import 'echarts/lib/chart/pie'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/title'
+import 'echarts/lib/component/legend'
+import 'echarts/lib/component/toolbox'
+// import 'echarts/lib/component/markPoint'
+// import 'echarts/lib/component/markLine'
+import './home.scss'
 
+const tabs = [
+  { title: <Badge>企业</Badge> },
+  { title: <Badge>人员</Badge> },
+  { title: <Badge>车辆</Badge> },
+  { title: <Badge>设备</Badge> },
+]
 class Home extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      productList: [
-        {name: '90天标的产品第2期', status:'到期还本付息', interest: '7.0', period: 90, remainMoney: 11000.00, id: 1},
-        {name: '90天标的产品第10期', status:'到期还本付息', interest: '11.0', period: 180, remainMoney: 1100000.00, id: 2},
-      ]
+      companyData: [
+        {value:335, name:'直接访问'},
+        {value:310, name:'邮件营销'},
+        {value:234, name:'联盟广告'},
+        {value:135, name:'视频广告'}
+      ],
+      peopleData: {
+        xdata: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+        ydata:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+      },
+      deviceData:  [
+        {value:335, name:'直接访问'},
+        {value:310, name:'邮件营销'},
+        {value:234, name:'联盟广告'},
+        {value:135, name:'视频广告'}
+      ],
     }
   }
 
   componentDidMount = () => {
     document.title = '首页'
-  };
+  }
 
-  handleProductDetail = (e, id) => {
-    e.stopPropagation();
-    console.log(e.target)
-    console.log(id)
-    // let id = e.target.getAttribute('data-id')
-    this.props.history.push(`/productDetail?id=${id}`)
+  onTabChange = (tab, index) => {
+    console.log(index)
   }
 
   render = () => {
-    let { productList, pathname } = this.state;
+    let { companyData, peopleData, deviceData } = this.state
     return ( 
       <div className="home">
-        {
-          productList.length > 0 
-          ?
-          <div className="product">
-            <ul>
-              {
-                productList.map((item, index) => {
-                  return(
-                    <li className="product_list" key={item.id} onClick={() => this.handleProductDetail(event, item.id)}>
-                      <div className="product_list_head">
-                        <span className="name">{item.name}</span>
-                        <span className="size"><em>到期还本付息</em></span>
-                      </div>
-                      <div className="product_list_bottom">
-                        <div className="product_list_bottom_info">
-                          <span className="interest">{item.interest}<em>%</em></span>
-                          <span className="info_size">协议约定利率</span>
-                        </div>
-                        <div className="product_list_bottom_info">
-                          <span className="period">{item.period}<i>元</i></span>
-                          <span className="info_size">出借期限</span>
-                        </div>
-                        <div className="product_list_bottom_info">
-                          <span className="remain_money">{Tools.isNumeral(item.remainMoney)}</span>
-                          <span className="info_size">剩余金额(元)</span>
-                        </div>
-                      </div>
-                    </li> 
-                  )
-                })
-              }
-            </ul>
-            <div className="noData">无更多标的～</div>
-          </div>
-          :
-          <NoData text="暂无已可出借标的" />
-        }
+        <Tabs tabs={tabs}
+          initialPage={0}
+          tabBarActiveTextColor="#252424"
+          tabBarInactiveTextColor="#666666"
+          tabBarBackgroundColor="#ffffff"
+          onChange={this.onTabChange}
+        >
+          <Company companyData={companyData} />
+          <People data={peopleData} />
+          <Car data={peopleData} />
+          <Device deviceData={deviceData} />
+        </Tabs>
       </div>
     )
   }

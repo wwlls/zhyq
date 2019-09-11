@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const config = {
-	title: '外货通',
+	title: '智慧园区',
 	port: 9000, // 部署环境的默认接口
 	api: 'http://test.huayingbaolicai.com:8002/api/', // 外网测试环境     
 	mock: false,
